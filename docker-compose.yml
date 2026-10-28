@@ -1,0 +1,29 @@
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U student -d studentdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    image: suleimanov-ramazan-student-api:local
+    ports:
+      - "8097:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/studentdb
+      SPRING_DATASOURCE_USERNAME: student
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    depends_on:
+      database:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
