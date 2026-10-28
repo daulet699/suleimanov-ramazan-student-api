@@ -4,7 +4,7 @@ Student: Suleimanov Ramazan
 Group: IT2-2308
 Student ID: 37408
 
-Course: DevOps Midterm - Main Branch
+Course: DevOps Midterm - Suleimanov Ramazan
 
 Technologies:
 - Java Spring Boot
