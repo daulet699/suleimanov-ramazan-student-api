@@ -13,3 +13,19 @@ Technologies:
 - Docker
 - Git and GitHub
 - Jenkins CI/CD
+
+## CRUD Implementation
+
+Developer: Suleimanov Ramazan
+Student ID: 37408
+
+Spring Boot REST API endpoints:
+
+POST   /api/students
+GET    /api/students
+GET    /api/students/{id}
+PUT    /api/students/{id}
+DELETE /api/students/{id}
+
+Database: PostgreSQL
+Testing: JUnit 5 and Mockito
